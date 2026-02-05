@@ -1,23 +1,43 @@
 package org.sorting;
-import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 
+/**
+ * Class to generate random numbers for sorting algorithms and save them to files.
+ * Purpose: To create a list of random integers with a specified size, ensuring the size does not exceed 3000.
+ */
+
 public class RandomNumbersGenerator {
-    public ArrayList<Integer> generateRandomNumbers(int size) {
-        int maxDigits = 4; // 4 digits
-        if (size <= 0) {
-            throw new IllegalArgumentException("Size must be a positive integer.");
-        } else {
-            if (size > 3000) {
-                size = 3000;
-                System.out.println("Size too large, setting to maximum of 3000.");
-            }
+
+    /**
+     * generates a list of random integers and saves them to a file.
+     * @param count quantity of random numbers to generate (maximum 3000)
+     * @param filename Name of the file where the numbers will be saved
+     */
+    
+    public static void generateNumbers(int count, String filename) {
+        // Validate the count parameter
+        if (count > 3000) {
+            System.out.println("Error: El máximo es 3000 números");
+            return;
         }
-        Random rand = new Random();
-        ArrayList<Integer> numbers = new ArrayList<>(size);
-        for (int i = 0; i < size; i++) {
-            numbers.add(rand.nextInt((int) Math.pow(10, maxDigits)));
+
+        try {
+            // file writer to save the numbers
+            FileWriter writer = new FileWriter(filename);
+            Random random = new Random(); // Random number generator
+            //Generate count random integers
+            for (int i = 0; i < count; i++) {
+                int number = random.nextInt(10000); // Generate a random integer between 0 and 9999
+                writer.write(number + "\n"); // Write the number to the file
             }
-        return numbers;
+            writer.close(); // Close the file writer
+            System.out.println("Se generaron " + count + " números en " + filename);
+        }
+        catch (IOException e) {
+            System.out.println("Error al escribir en el archivo: " + e.getMessage());
+        }
     }
 }
+
