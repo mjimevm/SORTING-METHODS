@@ -41,5 +41,11 @@ public class Main {
         for (Integer num : mergeSorted) {
             System.out.println(num);
         }
+        sorter.setInput(numbersList.toArray(new Integer[0]));
+        Integer[] quickSorted = sorter.quickSort(); // Ordenar usando Quick Sort
+        System.out.println("\nNúmeros ordenados con Quick Sort:");
+        for (Integer num : quickSorted) {
+            System.out.println(num);
+        }
     }
 }
