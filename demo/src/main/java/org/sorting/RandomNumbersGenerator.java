@@ -29,7 +29,7 @@ public class RandomNumbersGenerator {
             Random random = new Random(); // Random number generator
             //Generate count random integers
             for (int i = 0; i < count; i++) {
-                int number = random.nextInt(10000); // Generate a random integer between 0 and 9999
+                int number = random.nextInt(10000); // Generate a random integer
                 writer.write(number + "\n"); // Write the number to the file
             }
             writer.close(); // Close the file writer

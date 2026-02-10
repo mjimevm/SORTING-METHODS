@@ -1,6 +1,7 @@
 package org.sorting;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Collections;
 
 /**
  * Main class to execute the random number generation and display the generated numbers.
@@ -37,13 +38,16 @@ public class Main {
             return;
         }
 
-        Integer[] originalData = numbersList.toArray(new Integer[0]);
 
         // Si eligió opción 2, pre-ordenar los datos
         if (opcion == 2) {
-            java.util.Arrays.sort(originalData);
+            Collections.sort(numbersList);
             System.out.println("\n✓ Datos pre-ordenados para prueba");
+            for (Integer number : numbersList) {
+                System.out.println(number);
+            }
         }
+        Integer[] originalData = numbersList.toArray(new Integer[0]);
 
         System.out.println("\n========================================");
         System.out.println("Ordenando con diferentes algoritmos...");
