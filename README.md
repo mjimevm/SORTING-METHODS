@@ -18,6 +18,7 @@ Este proyecto implementa y compara 5 algoritmos de ordenamiento:
 - Gestión de archivos para persistencia de datos
 - Compatible con profilers (IntelliJ IDEA, VisualVM)
 
+```
 ## Estructura del Proyecto
 SORTING-METHODS/
 ├── README.md
@@ -37,8 +38,9 @@ SORTING-METHODS/
     │       └── java/
     │           └── org/sorting/
     │               └── SorterTest.java
-    ���── target/
-        └── classes/
+    ── target/
+    └── classes/
+```
 
 ## Requisitos
 - **Java 17** o superior
@@ -48,36 +50,37 @@ SORTING-METHODS/
 ## Instalación
 
 ### 1. Clonar el repositorio
+```
 git clone https://github.com/mjimevm/SORTING-METHODS
 cd SORTING-METHODS
-
+```
 ### 2. Verificar instalación de Java
 java -version
 Debe mostrar Java 17 o superior.
 
 ### 3. Instalación de Maven
+```
 cd demo
 mvn clean install
-
+```
 ## Compilación y Ejecución
 
-### Opción 1: Con Maven (Recomendado)
+### Opción 1
 Ve a la carpeta demo:
+```
 cd demo
-
+```
 Compila el proyecto:
+```
 mvn clean install
-
+```
 Ejecuta desde la raíz del proyecto:
 cd ..
+```
 java -cp demo/target/classes org.sorting.Main
+```
 
-### Opción 2: Desde IntelliJ IDEA
-1. **File → Open** y selecciona la carpeta `demo`
-2. Espera a que Maven sincronice las dependencias
-3. **Click derecho** en `Main.java` → **Run 'Main.main()'**
-
-### Opción 3: Con Profiler en IntelliJ
+### Con Profiler en IntelliJ
 1. **Click derecho** en `Main.java`
 2. **Profile 'Main.main()'**
 3. Ejecuta el programa normalmente
@@ -94,35 +97,10 @@ Ingrese la cantidad de números a generar: 1000
 2. Datos ya ordenados
 Selecciona una opción (1 o 2): 1
 
-════════════════════════════════════════
-      MIDIENDO TIEMPOS DE EJECUCIÓN     
-════════════════════════════════════════
-
-Ejecutando Gnome Sort... 245.234 ms
-Ejecutando Merge Sort... 3.456 ms
-Ejecutando Quick Sort... 2.123 ms
-Ejecutando Radix Sort... 1.234 ms
-Ejecutando Heap Sort... 4.567 ms
 
 ### Archivo de Números Generados
 El programa crea automáticamente un archivo `random_numbers.txt` con los números generados.
 
-## Medición de Tiempos
-
-### Para Datos Desordenados:
-java -cp demo/target/classes org.sorting.Main
-Opción: 1
-
-### Para Datos Ordenados:
-java -cp demo/target/classes org.sorting.Main
-Opción: 2
-
-### Con Profiler de IntelliJ:
-1. **Click derecho** en `Main.java` → **Profile**
-2. Ejecuta con opción **1** (desordenados)
-3. Anota los tiempos del profiler
-4. Ejecuta nuevamente con opción **2** (ordenados)
-5. Compara resultados
 
 ## Algoritmos Implementados
 
@@ -137,63 +115,16 @@ Opción: 2
 ## Pruebas JUnit
 
 ### Ejecutar todas las pruebas:
+```
 cd demo
 mvn test
-
+```
 ### Pruebas incluidas:
 - **SorterTest.java** - 15 pruebas unitarias que cubren:
   - Los 5 algoritmos de ordenamiento
   - Datos desordenados
   - Datos ya ordenados
   - Datos con duplicados
-
-### Ver cobertura de tests:
-En IntelliJ: **Click derecho** en `SorterTest.java` → **Run with Coverage**
-
-## Generación de Gráficas
-
-### Datos para Excel:
-Ejecuta el programa con diferentes tamaños (10, 50, 100, 500, 1000, 2000, 3000) y anota los tiempos.
-
-**Ejemplo de tabla:**
-
-| Tamaño | Gnome (ms) | Merge (ms) | Quick (ms) | Radix (ms) | Heap (ms) |
-|--------|------------|------------|------------|------------|-----------|
-| 10     | 0.5        | 0.1        | 0.1        | 0.1        | 0.2       |
-| 100    | 5.2        | 0.8        | 0.6        | 0.3        | 1.2       |
-| 1000   | 245.3      | 3.4        | 2.1        | 1.2        | 4.5       |
-| 3000   | 1523.4     | 8.2        | 5.1        | 2.4        | 12.3      |
-
-### Crear gráfica en Excel:
-1. Copia los datos a Excel
-2. Selecciona toda la tabla
-3. **Insertar → Gráfico → Líneas**
-4. Agrega título: "Comparación de Algoritmos de Ordenamiento"
-5. Eje X: "Cantidad de Datos"
-6. Eje Y: "Tiempo (ms)"
-
-## Uso con Profilers
-
-### IntelliJ IDEA Profiler (Integrado):
-1. Click derecho en Main.java
-2. "Profile 'Main.main()'"
-3. Ejecuta el programa
-4. Pestaña "Profiler" → "Method List"
-5. Busca: Sorter.gnomeSort(), mergeSort(), etc.
-6. Anota los tiempos
-
-### VisualVM (Alternativa):
-Terminal 1: Ejecutar el programa
-java -cp demo/target/classes org.sorting.Main
-
-Terminal 2: Abrir VisualVM
-jvisualvm
-
-1. Panel izquierdo → **Local** → **org.sorting.Main**
-2. Pestaña **"Profiler"** → **"CPU"**
-3. Espera a que termine el programa
-4. Click **"Stop"**
-5. Analiza los resultados
 
 ## Dependencias
 
@@ -218,9 +149,6 @@ mvn clean install
 **Solución 2:** Usa el Main con medición manual de tiempos (incluido en el proyecto)
 **Solución 3:** Cambia el profiler a modo "Instrumentation" en IntelliJ
 
-### Gnome Sort tarda demasiado con 3000 datos
-**Esto es normal:** Gnome Sort es O(n²) y puede tardar varios segundos con datos grandes desordenados.
-
 ## Tecnologías Utilizadas
 
 - **Java 17** - Lenguaje de programación
@@ -230,19 +158,6 @@ mvn clean install
 - **IntelliJ IDEA** - IDE recomendado con profiler integrado
 - **Excel** - Análisis de datos y gráficas
 
-## Comparación Teórica vs Práctica
-
-### Complejidad Esperada para 3000 Datos:
-
-| Algoritmo      | Tiempo Esperado | Escenario      |
-|----------------|----------------|----------------|
-| Gnome Sort     | ~1500-2000 ms  | Desordenado    |
-| Gnome Sort     | ~1-5 ms        | Ordenado       |
-| Merge Sort     | ~8-15 ms       | Ambos          |
-| Quick Sort     | ~5-10 ms       | Desordenado    |
-| Quick Sort     | ~50-200 ms     | Ordenado (peor caso) |
-| Radix Sort     | ~2-5 ms        | Ambos          |
-| Heap Sort      | ~10-20 ms      | Ambos          |
 
 ## Autores
 
